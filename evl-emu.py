@@ -842,6 +842,7 @@ if __name__ == "__main__":
 			logger.info ("Doing client login")
 			writeQueueNet.put(dsc_send(EVL_LOGIN_INTERACTION + '3'))
 			login = readQueueNet.get(True, 10)
+			writeQueueNet.put(dsc_send(NOTIFY_ACK + EVL_LOGIN_REQUEST))
 			writeQueueNet.put(dsc_send(EVL_LOGIN_INTERACTION + "1"))
 
 			# Create and start message handlers
